@@ -2,31 +2,36 @@
 
 <h1>Ponies</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Age</th>
-      <th>Breed</th>
-      <th>Height</th>
-      <th>Color</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="row">
+  <div class="col col-sm-6">
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="col col-sm-3">age</th>
+          <th class="col col-sm-3">Breed</th>
+          <th class="col col-sm-3">Height</th>
+          <th class="col col-sm-3">Color</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% @ponies.each do |pony| %>
-      <tr>
-        <td><%= pony.age %></td>
-        <td><%= pony.breed %></td>
-        <td><%= pony.height %></td>
-        <td><%= pony.color %></td>
-        <td><%= link_to 'Show', pony %></td>
-        <td><%= link_to 'Edit', edit_pony_path(pony) %></td>
-        <td><%= link_to 'Destroy', pony, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <tbody>
+        <% @ponies.each do |pony| %>
+          <tr>
+            <td><%= pony.age %></td>
+            <td><%= pony.breed %></td>
+            <td><%= pony.height %></td>
+            <td><%= pony.color %></td>
+            <td><%= link_to 'Show', pony %></td>
+            <td><%= link_to 'Edit', edit_pony_path(pony) %></td>
+            <td><%= link_to 'Destroy', pony, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
 
 <br>
 
