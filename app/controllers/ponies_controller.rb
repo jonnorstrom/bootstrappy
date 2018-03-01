@@ -5,6 +5,7 @@ class PoniesController < ApplicationController
   # GET /ponies.json
   def index
     @ponies = Pony.all
+    @pony = Pony.new
   end
 
   # GET /ponies/1

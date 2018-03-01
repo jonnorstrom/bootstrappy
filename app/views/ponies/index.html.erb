@@ -16,16 +16,35 @@
       </thead>
 
       <tbody>
-        <% @ponies.each do |pony| %>
-          <tr>
-            <td><%= pony.age %></td>
-            <td><%= pony.breed %></td>
-            <td><%= pony.height %></td>
-            <td><%= pony.color %></td>
-            <td><%= link_to 'Show', pony %></td>
-            <td><%= link_to 'Edit', edit_pony_path(pony) %></td>
-            <td><%= link_to 'Destroy', pony, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>
+        <div class="existing-ponies">
+          <% @ponies.each do |pony| %>
+            <tr>
+              <td><%= pony.age %></td>
+              <td><%= pony.breed %></td>
+              <td><%= pony.height %></td>
+              <td><%= pony.color %></td>
+              <td><%= link_to 'Show', pony %></td>
+              <td><%= link_to 'Edit', edit_pony_path(pony) %></td>
+              <td><%= link_to 'Destroy', pony, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </div>
+        <%= form_with(model: @pony, local: true, class: "col-sm-6") do |form| %>
+          <td>
+            <%= form.number_field :age, id: :pony_age, class: "form-control", placeholder: :age %>
+          </td>
+          <td>
+            <%= form.text_field :breed, id: :pony_breed, class: "form-control", placeholder: :breed %>
+          </td>
+          <td>
+            <%= form.number_field :height, id: :pony_height, class: "form-control", placeholder: :height %>
+          </td>
+          <td>
+            <%= form.text_field :color, id: :pony_color, class: "form-control", placeholder: :color %>
+          </td>
+          <td>
+            <%= form.submit %>
+          </td>
         <% end %>
       </tbody>
     </table>
