@@ -1,0 +1,9 @@
+<li>
+  <span><%= pony.age %></span> |
+  <span><%= pony.breed %></span> |
+  <span><%= pony.height %></span> |
+  <span><%= pony.color %></span> |
+  <span><%= link_to 'Show', pony %></span> |
+  <span><%= link_to 'Edit', edit_pony_path(pony) %></span> |
+  <span><%= link_to 'Destroy', pony, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+</li>

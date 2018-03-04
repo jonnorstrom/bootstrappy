@@ -4,32 +4,14 @@
 
 <div class="row">
   <div class="col col-sm-6">
-    <table class="table">
-      <thead>
-        <tr>
-          <th class="col col-sm-3">age</th>
-          <th class="col col-sm-3">Breed</th>
-          <th class="col col-sm-3">Height</th>
-          <th class="col col-sm-3">Color</th>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
-
-      <tbody>
+    <div class="container">
+      <ul>
         <div class="existing-ponies">
-          <% @ponies.each do |pony| %>
-            <tr>
-              <td><%= pony.age %></td>
-              <td><%= pony.breed %></td>
-              <td><%= pony.height %></td>
-              <td><%= pony.color %></td>
-              <td><%= link_to 'Show', pony %></td>
-              <td><%= link_to 'Edit', edit_pony_path(pony) %></td>
-              <td><%= link_to 'Destroy', pony, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-            </tr>
-          <% end %>
+            <%= render @ponies %>
         </div>
-        <%= form_with(model: @pony, local: true, class: "col-sm-6") do |form| %>
+      </ul>
+      <div class="pony-form-container">
+        <%= form_for @pony, remote: true do |form| %>
           <td>
             <%= form.number_field :age, id: :pony_age, class: "form-control", placeholder: :age %>
           </td>
@@ -46,8 +28,8 @@
             <%= form.submit %>
           </td>
         <% end %>
-      </tbody>
-    </table>
+      </tr>
+    </div>
   </div>
 </div>
 

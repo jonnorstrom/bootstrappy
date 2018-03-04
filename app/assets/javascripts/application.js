@@ -10,7 +10,25 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
 //= require rails-ujs
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function() {
+  $('.new_pony').on('submit', function(e) {
+    e.preventDefault();
+    $form = $(this);
+    var url = $form.attr('action');
+    var data = $form.serialize();
+    var method = $form.attr('method');
+
+    $.ajax({
+      url: url,
+      data: data,
+      method: method,
+      dataType: "json"
+    })
+  })
+})

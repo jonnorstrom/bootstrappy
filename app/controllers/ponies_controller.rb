@@ -26,11 +26,10 @@ class PoniesController < ApplicationController
   # POST /ponies.json
   def create
     @pony = Pony.new(pony_params)
-
     respond_to do |format|
       if @pony.save
         format.html { redirect_to @pony, notice: 'Pony was successfully created.' }
-        format.json { render :show, status: :created, location: @pony }
+        format.js
       else
         format.html { render :new }
         format.json { render json: @pony.errors, status: :unprocessable_entity }
