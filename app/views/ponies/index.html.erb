@@ -11,7 +11,7 @@
         </div>
       </ul>
       <div class="pony-form-container">
-        <%= form_for @pony, remote: true do |form| %>
+        <%= form_for @pony do |form| %>
           <td>
             <%= form.number_field :age, id: :pony_age, class: "form-control", placeholder: :age %>
           </td>

@@ -29,7 +29,7 @@ class PoniesController < ApplicationController
     respond_to do |format|
       if @pony.save
         format.html { redirect_to @pony, notice: 'Pony was successfully created.' }
-        format.js
+        format.js { render json: { :pony => render_to_string('ponies/_pony.html.erb', locals: {pony: @pony}, layout: false)}}
       else
         format.html { render :new }
         format.json { render json: @pony.errors, status: :unprocessable_entity }

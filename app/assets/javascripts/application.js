@@ -16,7 +16,7 @@
 //= require turbolinks
 //= require_tree .
 
-$(document).ready(function() {
+$(document).on('turbolinks:load', function() {
   $('.new_pony').on('submit', function(e) {
     e.preventDefault();
     $form = $(this);
@@ -29,6 +29,8 @@ $(document).ready(function() {
       data: data,
       method: method,
       dataType: "json"
+    }).success(function(resp){
+      $('.existing-ponies').append(resp['pony']);
     })
   })
 })
