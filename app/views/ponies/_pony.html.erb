@@ -2,8 +2,8 @@
   <span><%= pony.age %></span> |
   <span><%= pony.breed %></span> |
   <span><%= pony.height %></span> |
-  <span><%= pony.color %></span> |
+  <span class="pony-color"><%= pony.color %></span> |
   <span><%= link_to 'Show', pony %></span> |
   <span><%= link_to 'Edit', edit_pony_path(pony) %></span> |
-  <span class="delete-pony-link" href="/ponies/<%=pony.id%>">Delete</span>
+  <span class="delete-pony" href="/ponies/<%=pony.id%>">Delete</span>
 </li>

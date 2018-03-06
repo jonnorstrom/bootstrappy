@@ -35,16 +35,23 @@ $(document).on('turbolinks:load', function() {
     })
   })
 
-  $('.delete-pony-link').on('click', function(e) {
-    e.preventDefault();
+  $('body').on('click', function(e) {
+    var htmlElement = $(e.target)
 
-    var link = $(this)
-    var url = link.attr('href');
+    var targetClass = htmlElement.attr('class')
+    if (targetClass == 'delete-pony') {
+      e.preventDefault();
 
-    $.ajax({
-      url: url,
-      method: "delete",
-      dataType: 'json'
-    })
+      var url = htmlElement.attr('href');
+
+      $.ajax({
+        url: url,
+        method: "delete",
+        dataType: 'json'
+      }).success(function(resp){
+        link.parent().hide()
+      });
+    }
+
   })
 })
