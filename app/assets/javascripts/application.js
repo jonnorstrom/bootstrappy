@@ -32,6 +32,10 @@ $(document).on('turbolinks:load', function() {
       dataType: "json"
     }).success(function(resp){
       $('.existing-ponies').append(resp['pony']);
+      setTimeout(function(){
+        $('.create_pony_submit').prop('disabled', false)
+        $form[0].reset();
+      }, 5)
     })
   })
 
@@ -42,6 +46,7 @@ $(document).on('turbolinks:load', function() {
     if (targetClass == 'delete-pony') {
       e.preventDefault();
 
+
       var url = htmlElement.attr('href');
 
       $.ajax({
@@ -49,7 +54,7 @@ $(document).on('turbolinks:load', function() {
         method: "delete",
         dataType: 'json'
       }).success(function(resp){
-        link.parent().hide()
+        htmlElement.parent().hide()
       });
     }
 

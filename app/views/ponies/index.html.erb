@@ -25,15 +25,10 @@
             <%= form.text_field :color, id: :pony_color, class: "form-control", placeholder: :color %>
           </td>
           <td>
-            <%= form.submit %>
+            <%= form.submit class: "create_pony_submit" %>
           </td>
         <% end %>
       </tr>
     </div>
   </div>
 </div>
-
-
-<br>
-
-<%= link_to 'New Pony', new_pony_path %>
