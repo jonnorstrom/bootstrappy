@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery_ujs
 //= require rails-ujs
 //= require bootstrap-sprockets
 //= require turbolinks
@@ -34,9 +35,16 @@ $(document).on('turbolinks:load', function() {
     })
   })
 
-
-
   $('.delete-pony-link').on('click', function(e) {
     e.preventDefault();
+
+    var link = $(this)
+    var url = link.attr('href');
+
+    $.ajax({
+      url: url,
+      method: "delete",
+      dataType: 'json'
+    })
   })
 })
