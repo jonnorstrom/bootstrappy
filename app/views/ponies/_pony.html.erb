@@ -5,5 +5,5 @@
   <span><%= pony.color %></span> |
   <span><%= link_to 'Show', pony %></span> |
   <span><%= link_to 'Edit', edit_pony_path(pony) %></span> |
-  <span><%= link_to 'Destroy', pony, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+  <span><%= link_to 'Destroy', pony, method: :delete, data: { confirm: 'Are you sure?' }, class: "delete-pony-link" %></span>
 </li>

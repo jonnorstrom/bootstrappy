@@ -33,4 +33,10 @@ $(document).on('turbolinks:load', function() {
       $('.existing-ponies').append(resp['pony']);
     })
   })
+
+
+
+  $('.delete-pony-link').on('click', function(e) {
+    e.preventDefault();
+  })
 })
